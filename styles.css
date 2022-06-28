@@ -1,0 +1,21 @@
+
+/* Define the height and width of the "grid" */
+.grid {
+    position:absolute;
+    width: 600px;
+    height: 300px;
+    border: solid black 1px;
+}
+
+
+/* Define the block style. */
+.block {
+    /* Need position absolute in order to use the left property. */
+    position:absolute;
+    width:100px;
+    height: 20px;
+    background-color: blue;
+    /* left and bottom are the anchor points of our blocks in javascript. */
+    /* left: 50px;
+    bottom: 50px; */
+}
