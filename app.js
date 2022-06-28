@@ -19,6 +19,8 @@ class Block {
 
 }
 
+
+
 // function to draw the block, will have to repeat to draw other blocks.
 function addBlock() {
 
