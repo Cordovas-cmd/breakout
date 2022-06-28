@@ -21,12 +21,27 @@ class Block {
 
     // create an array of all my blocks. 
     const blocks = [
-        // setting the x and y coordinates
-        new Block(10, 270)
+        // setting the x and y coordinates in relation to the constructor above.
+        new Block(10, 270),
+        new Block(120, 270),
+        new Block(230, 270),
+        new Block(340, 270),
+        new Block(450, 270),
+        // new Block(10, 270),
+        // new Block(10, 270),
+        // new Block(10, 270),
+        // new Block(10, 270),
+        // new Block(10, 270),
+        // new Block(10, 270),
+        // new Block(10, 270),
+        // new Block(10, 270),
+        // new Block(10, 270),
+        // new Block(10, 270),
+        // new Block(10, 270),
     ]
 
     // console log to make sure it's running properly should grab all four points that create the block. 
-    console.log(blocks[0])
+    // console.log(blocks[0])
 
 
 
@@ -46,7 +61,7 @@ class Block {
 // }
 // same as the single block function more or less but plural for multiple blocks.
 function addBlocks() {
-    // for loop to create all the blocks I need to draw
+    // for loop to create all the blocks I need to draw based on the array above.
     for (let i = 0; i < blocks.length; i++) {
 
          // create the first block div and add a class of block to it
@@ -54,10 +69,12 @@ function addBlocks() {
         block.classList.add('block');
         // adding the left and the bottom styles and spacing to the css in javascript
         // grab the bottomLeft xAxis from the constructor above using [0]  to refer to xAxis that we set up in this.bottomLeft.
-        block.style.left = blocks[i].bottomLeft[0]
-        block.style.bottom = blocks[i]
+        block.style.left = blocks[i].bottomLeft[0] + 'px'
+        block.style.bottom = blocks[i].bottomLeft[1] + 'px'
         // Add the element to a child of grid.
         grid.appendChild(block);
+        
+      
     }
  
 }
