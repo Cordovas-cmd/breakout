@@ -26,3 +26,12 @@
     height:20px;
     background-color: purple;
 }
+
+.ball {
+    position:absolute;
+    width: 20px;
+    height: 20px;
+    /* border-radius to give it rounded corners and make it a circle */
+    border-radius: 10px;
+    background-color: red;
+}

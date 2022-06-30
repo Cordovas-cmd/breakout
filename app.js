@@ -147,3 +147,10 @@ function moveUser(e) {
 }
 // listen out for a keydown and callback moveUser function
 document.addEventListener('keydown', moveUser)
+
+// add the ball
+
+const ball = document.createElement('div');
+ball.classList.add('ball')
+// the grid is the parent and we are putting the ball inside of it.
+grid.appendChild(ball)
