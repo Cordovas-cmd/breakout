@@ -99,8 +99,32 @@ addBlocks()
 const user = document.createElement('div');
 // add the class of user to create the styles
 user.classList.add('user');
-// both of these will print based on Currents position array.
-user.style.left = currentPosition[0] + 'px'
-user.style.bottom = currentPosition[1] + 'px'
+// run drawUser function.
+drawUser()
 // append to the child element.
 grid.appendChild(user);
+
+// draw the user
+function drawUser() {
+    // both of these will print based on Currents position array.
+    user.style.left = currentPosition[0] + 'px'
+    user.style.bottom = currentPosition[1] + 'px'
+}
+
+// Move user.
+
+function moveUser(e) {
+    // will use a switch case because we are going to be listening out for different keys.
+    // pass through what to listen for and if it matches the case we will execute the code and breakout.
+    switch(e.key) {
+        // if the key pressed has the value of ArrowLeft then...
+        case 'ArrowLeft':
+        // subtract ten from xAxis on keypress.
+        currentPosition[0] -=10
+        // redraw the user.
+        drawUser()
+        break;
+    }
+}
+// listen out for a keydown and callback moveUser function
+document.addEventListener('keydown', moveUser)
