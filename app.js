@@ -2,11 +2,17 @@
 const grid = document.querySelector('.grid');
 const blockWidth = 100
 const blockHeight = 20
+const boardWidth = 560 
+
 
 //want to make user start in the same xAxis as the middle block. wil always "start" here even if you refresh.
 const userStart = [230, 10]
 // Declare currentPosition here and define it as userStart (it's ok since it's a let it can change)
 let currentPosition = userStart
+
+
+
+
 // create block
 class Block {
     // using the X and Y axis (bottom left of our block) using to decipher all 4 points of the block
@@ -127,6 +133,16 @@ function moveUser(e) {
         drawUser()
             }
         break;
+        // second switch case
+        case 'ArrowRight':
+            // as long as the x axis doesn't extend past boardWidth (need to subtract the block width to account for anchor point.)
+            if (currentPosition[0] < boardWidth - blockWidth) {
+                // Ad 10 to the xAxis on keydown
+            currentPosition[0] +=10
+            // redraw the user.
+            drawUser()
+            }
+            break;
     }
 }
 // listen out for a keydown and callback moveUser function
