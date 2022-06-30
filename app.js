@@ -3,6 +3,10 @@ const grid = document.querySelector('.grid');
 const blockWidth = 100
 const blockHeight = 20
 
+//want to make user start in the same xAxis as the middle block. wil always "start" here even if you refresh.
+const userStart = [230, 10]
+// Declare currentPosition here and define it as userStart (it's ok since it's a let it can change)
+let currentPosition = userStart
 // create block
 class Block {
     // using the X and Y axis (bottom left of our block) using to decipher all 4 points of the block
@@ -95,5 +99,8 @@ addBlocks()
 const user = document.createElement('div');
 // add the class of user to create the styles
 user.classList.add('user');
+// both of these will print based on Currents position array.
+user.style.left = currentPosition[0] + 'px'
+user.style.bottom = currentPosition[1] + 'px'
 // append to the child element.
 grid.appendChild(user);
