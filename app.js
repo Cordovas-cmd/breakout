@@ -119,10 +119,13 @@ function moveUser(e) {
     switch(e.key) {
         // if the key pressed has the value of ArrowLeft then...
         case 'ArrowLeft':
+            // add an if statement so that the xAxis will never go past the border of the grid (will never be less than 0)
+            if (currentPosition[0] > 0) {
         // subtract ten from xAxis on keypress.
         currentPosition[0] -=10
         // redraw the user.
         drawUser()
+            }
         break;
     }
 }
