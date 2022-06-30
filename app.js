@@ -78,6 +78,13 @@ function addBlocks() {
         
       
     }
+     // A way to automate the x coordinates need to figure out how to run it in increments of 5 and then start over..
+//  if( i < blocks.length ) {
+//     block.style.left = blocks[i].bottomLeft[0] + 110 * i + 'px'
+//     block.style.bottom = blocks[i].bottomLeft[1] + 'px'
+
+// }
+// console.log(blocks[i].bottomLeft[0] + 110 * i);
  
 }
 
