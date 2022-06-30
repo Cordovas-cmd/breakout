@@ -10,6 +10,9 @@ const userStart = [230, 10]
 // Declare currentPosition here and define it as userStart (it's ok since it's a let it can change)
 let currentPosition = userStart
 
+// set up positioning for the ball, want it to sit right on top of the user start position.
+const ballStart =[270, 40]
+let ballCurrentPosition = ballStart 
 
 
 
@@ -152,5 +155,7 @@ document.addEventListener('keydown', moveUser)
 
 const ball = document.createElement('div');
 ball.classList.add('ball')
+ball.style.left = ballCurrentPosition[0] + 'px'
+ball.style.bottom = ballCurrentPosition[1] + 'px'
 // the grid is the parent and we are putting the ball inside of it.
 grid.appendChild(ball)
