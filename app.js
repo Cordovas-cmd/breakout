@@ -89,3 +89,11 @@ function addBlocks() {
 }
 
 addBlocks()
+
+//add a user
+// create the user container
+const user = document.createElement('div');
+// add the class of user to create the styles
+user.classList.add('user');
+// append to the child element.
+grid.appendChild(user);
