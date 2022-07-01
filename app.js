@@ -198,7 +198,7 @@ function changeDirection() {
 
     // If xDirection is and yDirection on collision = 2
     if (xDirection === 2 && yDirection === 2) {
-    yDirection = -2
+    xDirection = -2
     return
     } 
     // if ()
