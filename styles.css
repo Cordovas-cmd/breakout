@@ -37,3 +37,42 @@
     border-radius: 10px;
     background-color: red;
 }
+
+.none {
+    display: none;
+}
+ .gameover {
+margin-top: 300px;
+margin-left: 300px;
+font-size: 300px;
+/* transform: rotate(1turn); */
+animation: mymove 5s infinite; /*mlsdkf 1.4s ease-in-out infinite;*/
+transition: 5s cubic-bezier(0,1.5,.5,1) ;
+/* animation:mlsdkf 1.4s ease-in-out infinite; */
+}
+
+@keyframes mymove {
+  from {color: red;}
+  to {color: blue;}
+}
+/* keyframes mlskf {
+    100% {
+     transform:rotate(360deg);
+    }
+   }
+   @keyframes mlsdkf {
+    0% {
+     stroke-dasharray:1,189;
+     stroke-dashoffset:0;
+    }
+    50% {
+     stroke-dasharray:134,189;
+     stroke-dashoffset:-53px;
+    }
+    100% {
+     stroke-dasharray:134,189;
+     stroke-dashoffset:-188px;
+    }
+   } */
+
+

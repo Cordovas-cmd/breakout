@@ -1,5 +1,6 @@
 // grabbing the grid from html
 const grid = document.querySelector('.grid');
+const score = document.querySelector('#score')
 const blockWidth = 100
 const blockHeight = 20
 const ballDiameter = 20
@@ -190,8 +191,23 @@ timerId = setInterval(moveBall, 30)
 function checkForCollisions() { 
     // check if ball collides with wall
     if(ballCurrentPosition[0] >= (boardWidth - ballDiameter) || 
-    ballCurrentPosition[1] >= (boardHeight - ballDiameter) ) {
+    ballCurrentPosition[1] >= (boardHeight - ballDiameter) ||
+    // If x axis is smaller than or equal to zero than run changeDirection
+    ballCurrentPosition[0] <= 0 ) {
         changeDirection()
+    }
+
+    // check for game over
+    // If ball hits bottom of the board clear interval(stop ball from moving)
+    if (ballCurrentPosition[1] <= 0) {
+        clearInterval(timerId)
+        // once the ball hits the bottom set score to "you lose"
+        score.innerHTML = 'You Lose'
+        // remove event listener of keydown so we can't move the user
+        document.removeEventListener('keydown', moveUser)
+        grid.classList.remove('grid')
+        grid.classList.add('none')
+        score.classList.add('gameover')
     }
 }
 
@@ -214,6 +230,9 @@ function changeDirection() {
     }
     if (xDirection === -2 && yDirection === 2) {
         xDirection = 2
+        return
+    }
+    else {
         return
     }
 }
