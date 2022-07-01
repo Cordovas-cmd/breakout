@@ -113,12 +113,19 @@ drawUser()
 // append to the child element.
 grid.appendChild(user);
 
-// draw the user
+// Draw the user
 function drawUser() {
     // both of these will print based on Currents position array.
     user.style.left = currentPosition[0] + 'px'
     user.style.bottom = currentPosition[1] + 'px'
 }
+
+// Draw the ball
+function drawBall() {
+       // both of these will print based on Currents position array.
+       ball.style.left = ballCurrentPosition[0] + 'px'
+       ball.style.bottom = ballCurrentPosition[1] + 'px'
+   }
 
 // Move user.
 
@@ -155,7 +162,18 @@ document.addEventListener('keydown', moveUser)
 
 const ball = document.createElement('div');
 ball.classList.add('ball')
-ball.style.left = ballCurrentPosition[0] + 'px'
-ball.style.bottom = ballCurrentPosition[1] + 'px'
+drawBall()
 // the grid is the parent and we are putting the ball inside of it.
 grid.appendChild(ball)
+
+// Move the ball
+function moveBall() {
+   
+    // want our ball to move by adding x and y axis
+    ballCurrentPosition[0] += 2
+    ballCurrentPosition[1] +=2
+    drawBall()
+}
+
+// set interval for moveBall
+setInterval(moveBall, 30)
