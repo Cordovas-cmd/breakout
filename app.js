@@ -213,6 +213,14 @@ function checkForCollisions() {
             // if you hit a block add to the score and update display.
             score++
             scoreDisplay.innerHTML= score
+
+            // check for a win
+            if(blocks.length === 0) {
+                scoreDisplay.innerHTML= "You win!!"
+                clearInterval(timerId)
+                document.removeEventListener('keydown', moveUser)
+
+            }
         }
     }
 
@@ -225,6 +233,16 @@ function checkForCollisions() {
     ballCurrentPosition[0] <= 0 ) {
         changeDirection()
     }
+
+    // check for user collisions (make ball bounce off user if hit)
+
+    // if ball current position xAxis is larger than the current position of our users xAxis && the ball current position xAxis is smaller than the current position xAxis + userWidth  
+    if(
+        (ballCurrentPosition[0] > currentPosition[0] && ballCurrentPosition[0] < currentPosition[0] + blockWidth) &&
+        (ballCurrentPosition[1] > currentPosition[1] && ballCurrentPosition[1] < currentPosition[1] + blockHeight)
+        ) {
+            changeDirection()
+        }
 
     // check for game over-----------------------------------
     // If ball hits bottom of the board clear interval(stop ball from moving)
@@ -267,3 +285,4 @@ function changeDirection() {
         return
     }
 }
+
