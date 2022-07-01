@@ -192,7 +192,23 @@ timerId = setInterval(moveBall, 30)
 
 //check for collisions
 function checkForCollisions() { 
-    // check if ball collides with wall on the x axis. (is wider than the board width)
+    // Check for ball collisions --------
+    for(let i =0 ; i < blocks.length; i++) {
+        //have to check if ball hits inbetween bottom right and left xAxis of the block.
+        if (
+            // if ball current position xAxis is larger than the blocks xAXis or smaller than the bottom right's xAxis
+            (ballCurrentPosition[0] > blocks[i].bottomLeft[0] && ballCurrentPosition[0] < blocks[i].bottomRight[0]) &&
+            // if (ball current position yAxis + ballDiameter) is larger than the blocks bottomLeft yAXis or smaller than than the blocks topLeft yAxis
+            ((ballCurrentPosition[1] + ballDiameter) > blocks[i].bottomLeft[1] && ballCurrentPosition[1] < blocks[i].bottomRight[1] < blocks[i].topLeft[1])
+        ) {
+            // grab all of the elements with a class of block when we collide with any block and create an array out of them
+            const allBlocks = Array.from(document.querySelectorAll('.block'))
+            console.log(allBlocks)
+        }
+    }
+
+
+    // check if ball collides with wall on the x axis. (is wider than the board width)----------
     if(ballCurrentPosition[0] >= (boardWidth - ballDiameter) ||
     // if the ball collides with y axis, is = to the board height.
     ballCurrentPosition[1] >= (boardHeight - ballDiameter) ||
