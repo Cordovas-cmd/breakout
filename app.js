@@ -2,7 +2,13 @@
 const grid = document.querySelector('.grid');
 const blockWidth = 100
 const blockHeight = 20
+const ballDiameter = 20
 const boardWidth = 560 
+//set a timerID for ball
+let timerId
+// set variables for xDirection and yDirection thast we can use later to relate to how fast the balls will move in either direction
+let xDirection = 2
+let yDirection = 2
 
 
 //want to make user start in the same xAxis as the middle block. wil always "start" here even if you refresh.
@@ -170,10 +176,30 @@ grid.appendChild(ball)
 function moveBall() {
    
     // want our ball to move by adding x and y axis
-    ballCurrentPosition[0] += 2
-    ballCurrentPosition[1] +=2
+    ballCurrentPosition[0] += xDirection
+    ballCurrentPosition[1] += yDirection
     drawBall()
+    checkForCollisions()
 }
 
-// set interval for moveBall
-setInterval(moveBall, 30)
+// set interval for moveBall and put on timerId clear interval if needed
+timerId = setInterval(moveBall, 30)
+
+//check for collisions
+function checkForCollisions() { 
+    // check if ball collides with wall
+    if(ballCurrentPosition[0] >= (boardWidth - ballDiameter)) {
+        changeDirection()
+    }
+}
+
+function changeDirection() { 
+    // currently our ball is moving +2 x and y +2 so..
+
+    // If xDirection is and yDirection on collision = 2
+    if (xDirection === 2 && yDirection === 2) {
+    yDirection = -2
+    return
+    } 
+    // if ()
+}
