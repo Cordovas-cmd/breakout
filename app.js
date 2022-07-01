@@ -11,6 +11,8 @@ let timerId
 // set variables for xDirection and yDirection thast we can use later to relate to how fast the balls will move in either direction
 let xDirection = 2
 let yDirection = 2
+// let xDirection = -2
+// let yDirection = -2
 
 
 //want to make user start in the same xAxis as the middle block. wil always "start" here even if you refresh.
@@ -181,6 +183,7 @@ function moveBall() {
     ballCurrentPosition[0] += xDirection
     ballCurrentPosition[1] += yDirection
     drawBall()
+    // every 30 miliseconds check for collision.
     checkForCollisions()
 }
 
@@ -189,15 +192,16 @@ timerId = setInterval(moveBall, 30)
 
 //check for collisions
 function checkForCollisions() { 
-    // check if ball collides with wall
-    if(ballCurrentPosition[0] >= (boardWidth - ballDiameter) || 
+    // check if ball collides with wall on the x axis. (is wider than the board width)
+    if(ballCurrentPosition[0] >= (boardWidth - ballDiameter) ||
+    // if the ball collides with y axis, is = to the board height.
     ballCurrentPosition[1] >= (boardHeight - ballDiameter) ||
     // If x axis is smaller than or equal to zero than run changeDirection
     ballCurrentPosition[0] <= 0 ) {
         changeDirection()
     }
 
-    // check for game over
+    // check for game over-----------------------------------
     // If ball hits bottom of the board clear interval(stop ball from moving)
     if (ballCurrentPosition[1] <= 0) {
         clearInterval(timerId)
@@ -217,9 +221,11 @@ function changeDirection() {
     // If xDirection is and yDirection on collision = 2
     // Trying to set a bunch of rules for the collision detection on the x and y axis ... redefining values as needed.
     if (xDirection === 2 && yDirection === 2) {
+        // if ball hits the grid start descending.
     yDirection = -2
     return
     } 
+    // need a way to account for all the possible combinations of the collision and direction.
     if (xDirection === 2 && yDirection === -2) {
         xDirection = -2
         return
