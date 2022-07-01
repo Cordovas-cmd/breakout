@@ -1,6 +1,6 @@
 // grabbing the grid from html
 const grid = document.querySelector('.grid');
-const score = document.querySelector('#score')
+const scoreDisplay = document.querySelector('#score')
 const blockWidth = 100
 const blockHeight = 20
 const ballDiameter = 20
@@ -13,6 +13,7 @@ let xDirection = 2
 let yDirection = 2
 // let xDirection = -2
 // let yDirection = -2
+let score = 0
 
 
 //want to make user start in the same xAxis as the middle block. wil always "start" here even if you refresh.
@@ -203,7 +204,15 @@ function checkForCollisions() {
         ) {
             // grab all of the elements with a class of block when we collide with any block and create an array out of them
             const allBlocks = Array.from(document.querySelectorAll('.block'))
-            console.log(allBlocks)
+            // whichever block is hit needs to dissapear.
+            allBlocks[i].classList.remove('block')
+            // also remove the block from the blocks array using splice. remove block with current index .
+            blocks.splice(i, 1)
+            // when you hit a block change direction
+            changeDirection()
+            // if you hit a block add to the score and update display.
+            score++
+            scoreDisplay.innerHTML= score
         }
     }
 
@@ -222,12 +231,12 @@ function checkForCollisions() {
     if (ballCurrentPosition[1] <= 0) {
         clearInterval(timerId)
         // once the ball hits the bottom set score to "you lose"
-        score.innerHTML = 'You Lose'
+        scoreDisplay.innerHTML = 'You Lose'
         // remove event listener of keydown so we can't move the user
         document.removeEventListener('keydown', moveUser)
         grid.classList.remove('grid')
         grid.classList.add('none')
-        score.classList.add('gameover')
+        scoreDisplay.classList.add('gameover')
     }
 }
 
