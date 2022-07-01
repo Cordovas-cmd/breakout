@@ -4,6 +4,7 @@ const blockWidth = 100
 const blockHeight = 20
 const ballDiameter = 20
 const boardWidth = 560 
+const boardHeight = 300
 //set a timerID for ball
 let timerId
 // set variables for xDirection and yDirection thast we can use later to relate to how fast the balls will move in either direction
@@ -188,7 +189,8 @@ timerId = setInterval(moveBall, 30)
 //check for collisions
 function checkForCollisions() { 
     // check if ball collides with wall
-    if(ballCurrentPosition[0] >= (boardWidth - ballDiameter)) {
+    if(ballCurrentPosition[0] >= (boardWidth - ballDiameter) || 
+    ballCurrentPosition[1] >= (boardHeight - ballDiameter) ) {
         changeDirection()
     }
 }
@@ -197,9 +199,21 @@ function changeDirection() {
     // currently our ball is moving +2 x and y +2 so..
 
     // If xDirection is and yDirection on collision = 2
+    // Trying to set a bunch of rules for the collision detection on the x and y axis ... redefining values as needed.
     if (xDirection === 2 && yDirection === 2) {
-    xDirection = -2
+    yDirection = -2
     return
     } 
-    // if ()
+    if (xDirection === 2 && yDirection === -2) {
+        xDirection = -2
+        return
+    }
+    if (xDirection === -2 && yDirection === -2) {
+        yDirection = 2
+        return
+    }
+    if (xDirection === -2 && yDirection === 2) {
+        xDirection = 2
+        return
+    }
 }
