@@ -17,9 +17,7 @@
     width:100px;
     height: 20px;
     background-color: blue;
-    /* left and bottom are the anchor points of our blocks in javascript. */
-    /* left: 50px;
-    bottom: 50px; */
+    
 }
 
 .user {
@@ -44,7 +42,7 @@
  .gameover {
     display: flex;
     flex-wrap:nowrap;
-    width: auto
+    width: auto;
 margin-top: 300px;
 margin-left: 300px;
 font-size: 300px;
