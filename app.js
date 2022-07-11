@@ -282,3 +282,15 @@ function stopGame() {
         scoreDisplay.classList.add('gameover')
     }
 }
+
+/// need to add levels
+
+// want to make the ball and blocks more stylish with some 3d feel to them
+
+// want to add difficulty and levels
+
+// want to add power ups 
+
+// different abilities possibly.
+
+// more animations
